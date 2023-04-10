@@ -25,26 +25,10 @@ public class CodeHtmlResource {
         this.codeService = codeService;
     }
 
-    @RequestMapping("/code")
+    @GetMapping("/code")
     public String getCodeAsHtml(Model model) {
         model.addAttribute("code", codeService.getCode());
         return "code";
-    }
-
-    @GetMapping("/template2")
-    public String template(Model model) {
-        String message = "Top 5 Cloud Service Providers";
-        // creating a collection
-        List<String> list = new ArrayList<>();
-        list.add("Amazon Web Services");
-        list.add("Microsoft Azure");
-        list.add("Google Cloud");
-        list.add("Alibaba Cloud");
-        list.add("IBM Cloud");
-        model.addAttribute("message", message);
-        // adding the collection attribute
-        model.addAttribute("cloudProvider", list);
-        return "test";
     }
 
 }
